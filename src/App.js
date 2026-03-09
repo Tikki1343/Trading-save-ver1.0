@@ -49,7 +49,7 @@ export default function App() {
     { key: "obFvg", label: "OB × FVG 重なり確認", required: true },
     { key: "chochBos", label: "CHoCH / BOS 確認", required: false },
     { key: "fibo", label: "フィボ 61.8〜79% 重なり", required: false },
-    { key: "bslSsl", label: "BSL / SSL 狩り確認", required: false },
+    { key: "bslSsl", label: "Liquidity Sweep 確認", required: false },
     { key: "mss", label: "MSS 確認", required: false },
   ];
 

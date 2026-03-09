@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "trading-records-v2";
-const PAIRS = ["USDJPY", "EURUSD", "GBPUSD", "AUDUSD", "XAUUSD", "その他"];
+const PAIRS = ["USDJPY", "EURUSD", "NASDAQ", "AUDUSD", "XAUUSD", "その他"];
 
 const initialForm = {
   date: "", pair: "", mode: "demo",

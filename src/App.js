@@ -89,6 +89,21 @@ export default function App() {
     if (!withRR.length) return null;
     return (withRR.reduce((s, r) => s + parseFloat(r.rr), 0) / withRR.length).toFixed(2);
   })();
+  const avgRRWin = (() => {
+    const w = filtered.filter(r => r.rr && r.result === "win");
+    if (!w.length) return null;
+    return (w.reduce((s, r) => s + parseFloat(r.rr), 0) / w.length).toFixed(2);
+  })();
+const avgRRLoss = (() => {
+    const w = filtered.filter(r => r.rr && r.result === "loss");
+    if (!w.length) return null;
+    return (w.reduce((s, r) => s + parseFloat(r.rr), 0) / w.length).toFixed(2);
+  })();
+const avgRRBe = (() => {
+    const w = filtered.filter(r => r.rr && r.result === "be");
+    if (!w.length) return null;
+    return (w.reduce((s, r) => s + parseFloat(r.rr), 0) / w.length).toFixed(2);
+  })();
 
   const inputStyle = {
     width: "100%", background: "#0a0e1a", border: "1px solid #1e2a3a",
@@ -249,7 +264,10 @@ export default function App() {
               <StatCard label="TOTAL" value={filtered.length} color="#94a3b8" />
               <StatCard label="WIN RATE" value={`${winRate}%`} color={winRate >= 50 ? "#22c55e" : "#ef4444"} />
               <StatCard label="WIN / LOSS" value={`${winCount} / ${lossCount}`} color="#f59e0b" />
-              <StatCard label="AVG RR" value={avgRR ? `1:${avgRR}` : "-"} color="#8b5cf6" />
+           <StatCard label="AVG RR (全体)" value={avgRR ? `1:${avgRR}` : "-"} color="#8b5cf6" />
+<StatCard label="AVG RR (WIN)" value={avgRRWin ? `1:${avgRRWin}` : "-"} color="#22c55e" />
+<StatCard label="AVG RR (LOSS)" value={avgRRLoss ? `1:${avgRRLoss}` : "-"} color="#ef4444" />
+<StatCard label="AVG RR (B/E)" value={avgRRBe ? `1:${avgRRBe}` : "-"} color="#94a3b8" />
             </div>
 
             <div style={{ background: "#0f1420", border: `1px solid ${totalPnl >= 0 ? "#22c55e33" : "#ef444433"}`, borderRadius: 8, padding: "20px", marginBottom: 16, textAlign: "center" }}>

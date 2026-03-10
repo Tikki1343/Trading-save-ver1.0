@@ -10,7 +10,7 @@ const initialForm = {
 };
 
 function ScoreBadge({ score }) {
-  const max = 6;
+  const max = 7;
   const pct = (score / max) * 100;
   const color = score >= 5 ? "#22c55e" : score >= 3 ? "#f59e0b" : "#ef4444";
   const label = score >= 5 ? "エントリー推奨 ✓" : score >= 3 ? "要再確認 △" : "見送り推奨 ✗";

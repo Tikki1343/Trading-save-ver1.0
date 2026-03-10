@@ -51,6 +51,7 @@ export default function App() {
     { key: "fibo", label: "フィボ 61.8〜79% 重なり", required: false },
     { key: "bslSsl", label: "Liquidity Sweep 確認", required: false },
     { key: "mss", label: "MSS 確認", required: false },
+    { key: "turtleSoup", label: "タートルスープ確認", required: false },
   ];
 
   const score = conditions.filter(c => form[c.key]).length;

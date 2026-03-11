@@ -12,8 +12,8 @@ const initialForm = {
 function ScoreBadge({ score }) {
   const max = 8;
   const pct = (score / max) * 100;
-  const color = score >= 8 ? "#22c55e" : score >= 4 ? "#f59e0b" : "#ef4444";
-  const label = score >= 8 ? "エントリー推奨 ✓" : score >= 4 ? "要再確認 △" : "見送り推奨 ✗";
+  const color = score >= 8 ? "#22c55e" : score >= 3 ? "#f59e0b" : "#ef4444";
+  const label = score >= 8 ? "エントリー推奨 ✓" : score >= 3 ? "要再確認 △" : "見送り推奨 ✗";
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{ fontSize: 48, fontWeight: 900, color, fontFamily: "'Courier New', monospace", lineHeight: 1, marginBottom: 4, textShadow: `0 0 30px ${color}88` }}>

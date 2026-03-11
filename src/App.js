@@ -156,7 +156,7 @@ const avgRRBe = (() => {
             <div style={{ background: "#0f1420", border: "1px solid #1e2a3a", borderRadius: 8, padding: "20px", marginBottom: 16 }}>
               <div style={{ fontSize: 10, letterSpacing: 3, color: "#64748b", marginBottom: 16 }}>CONFLUENCE SCORE</div>
               <ScoreBadge score={score} />
-              {!requiredMet && score > 0 && <div style={{ marginTop: 12, background: "#ef444415", border: "1px solid #ef444433", borderRadius: 4, padding: "8px 12px", fontSize: 11, color: "#ef4444" }}>⚠ 必須条件（KeyLevel・OB×FVG）が未確認です</div>}
+              {!requiredMet && score > 0 && <div style={{ marginTop: 12, background: "#ef444415", border: "1px solid #ef444433", borderRadius: 4, padding: "8px 12px", fontSize: 11, color: "#ef4444" }}>⚠ 必須条件（KeyLevel・OB）が未確認です</div>}
             </div>
 
             <div style={{ background: "#0f1420", border: "1px solid #1e2a3a", borderRadius: 8, padding: "20px", marginBottom: 16 }}>

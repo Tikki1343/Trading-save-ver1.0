@@ -44,19 +44,18 @@ export default function App() {
   const [records, setRecords] = useState([]);
   const [saved, setSaved] = useState(false);
 
-  const conditions = [
-    { key: "keyLevel", label: "4H KeyLevel と一致", required: true },
-    { key: "ob", label: "OB 確認", required: true },
-    { key: "fvg", label: "FVG 確認", required: false },
-    { key: "chochBos", label: "CHoCH / BOS 確認", required: false },
-    { key: "fibo", label: "フィボ 61.8〜79% 重なり", required: false },
-    { key: "bslSsl", label: "Liquidity Sweep 確認", required: false },
-    { key: "mss", label: "MSS 確認", required: false },
-    { key: "turtleSoup", label: "タートルスープ確認", required: false },
-  ];
-
+ const conditions = [
+  { key: "bslSsl", label: "BSL / SSL 狩り確認", priority: "必須" },
+  { key: "keyLevel", label: "4H KeyLevel と一致", priority: "必須" },
+  { key: "ob", label: "OB 確認", priority: "必須" },
+  { key: "fvg", label: "FVG 確認", priority: "重要" },
+  { key: "chochBos", label: "CHoCH / BOS 確認", priority: "重要" },
+  { key: "mss", label: "MSS 確認", priority: "重要" },
+  { key: "turtleSoup", label: "タートルスープ確認", priority: "重要" },
+  { key: "fibo", label: "フィボ 61.8〜79% 重なり", priority: "あったらうれしい" },
+];
   const score = conditions.filter(c => form[c.key]).length;
-  const requiredMet = conditions.filter(c => c.required).every(c => form[c.key]);
+  const requiredMet = conditions.filter(c => c.priority === "必須").every(c => form[c.key]);
 
   useEffect(() => {
     try {
@@ -165,7 +164,15 @@ const avgRRBe = (() => {
                 <div key={c.key} onClick={() => setForm(f => ({ ...f, [c.key]: !f[c.key] }))} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: "1px solid #1a2332", cursor: "pointer" }}>
                   <div style={{ width: 22, height: 22, minWidth: 22, background: form[c.key] ? "#22c55e22" : "transparent", border: `2px solid ${form[c.key] ? "#22c55e" : "#334155"}`, borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, transition: "all 0.15s" }}>{form[c.key] && "✓"}</div>
                   <span style={{ fontSize: 13, color: form[c.key] ? "#f1f5f9" : "#64748b", flex: 1 }}>{c.label}</span>
-                  {c.required && <span style={{ fontSize: 9, letterSpacing: 1, color: "#f59e0b", border: "1px solid #f59e0b44", borderRadius: 3, padding: "2px 5px" }}>必須</span>}
+{c.priority === "必須" && (
+ 　　　　　　　　 <span style={{ fontSize: 9, letterSpacing: 1, color: "#ef4444", border: "1px solid #ef444444", borderRadius: 3, padding: "2px 5px" }}>必須</span>
+)}
+{c.priority === "重要" && (
+  <span style={{ fontSize: 9, letterSpacing: 1, color: "#f59e0b", border: "1px solid #f59e0b44", borderRadius: 3, padding: "2px 5px" }}>重要</span>
+)}
+{c.priority === "あったらうれしい" && (
+  <span style={{ fontSize: 9, letterSpacing: 1, color: "#3b82f6", border: "1px solid #3b82f644", borderRadius: 3, padding: "2px 5px" }}>+α</span>
+)}
                 </div>
               ))}
             </div>

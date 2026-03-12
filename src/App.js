@@ -12,8 +12,8 @@ const initialForm = {
 function ScoreBadge({ score }) {
   const max = 8;
   const pct = (score / max) * 100;
-  const color = score >= 7 ? "#22c55e" : score >= 3 ? "#f59e0b" : "#ef4444";
-  const label = score >= 7 ? "エントリー推奨 ✓" : score >= 3 ? "要再確認 △" : "見送り推奨 ✗";
+  const color = score >= 6 ? "#22c55e" : score >= 3 ? "#f59e0b" : "#ef4444";
+  const label = score >= 6 ? "エントリー推奨 ✓" : score >= 3 ? "要再確認 △" : "見送り推奨 ✗";
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{ fontSize: 48, fontWeight: 900, color, fontFamily: "'Courier New', monospace", lineHeight: 1, marginBottom: 4, textShadow: `0 0 30px ${color}88` }}>
@@ -155,7 +155,7 @@ const avgRRBe = (() => {
             <div style={{ background: "#0f1420", border: "1px solid #1e2a3a", borderRadius: 8, padding: "20px", marginBottom: 16 }}>
               <div style={{ fontSize: 10, letterSpacing: 3, color: "#64748b", marginBottom: 16 }}>CONFLUENCE SCORE</div>
               <ScoreBadge score={score} />
-              {!requiredMet && score > 0 && <div style={{ marginTop: 12, background: "#ef444415", border: "1px solid #ef444433", borderRadius: 4, padding: "8px 12px", fontSize: 11, color: "#ef4444" }}>⚠ 必須条件（KeyLevel・OB）が未確認です</div>}
+              {!requiredMet && score > 0 && <div style={{ marginTop: 12, background: "#ef444415", border: "1px solid #ef444433", borderRadius: 4, padding: "8px 12px", fontSize: 11, color: "#ef4444" }}>⚠ 必須条件（Liquidity Sweep・KeyLevel・OB）が未確認です</div>}
             </div>
 
             <div style={{ background: "#0f1420", border: "1px solid #1e2a3a", borderRadius: 8, padding: "20px", marginBottom: 16 }}>
